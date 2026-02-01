@@ -1,8 +1,7 @@
 
 ### Genèse du projet
 
-Comprendre le rôle d'un reverse proxy en système est très important. 
-C'est le pilier qui assure la robustesse d'une archicture.
+Le rôle d'un reverse proxy en système est très important. C'est le pilier qui assure la robustesse d'une archicture.
 
 Un **reverse proxy** est un point d’entrée unique qui :
 * protège les services internes
@@ -11,6 +10,8 @@ Un **reverse proxy** est un point d’entrée unique qui :
 
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
+
+J'ai donc voulu faire un 1er projet en local intégrant un Reverse proxy;
 
 #NGINX
 
