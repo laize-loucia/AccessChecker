@@ -1,8 +1,11 @@
 
 ## Genèse de mon projet
 
-## Pourquoi comprendre le rôle d’un reverse proxy (très important)
 
+
+
+
+#Reverse proxy
 Comprendre le rôle d'un reverse proxy est très important en systèmes étant donné que c'est une pilier qui assure la robustesse d'une archicture et la protège.
 
 Un **reverse proxy** est un point d’entrée unique qui :
@@ -48,6 +51,11 @@ Un **reverse proxy** est un point d’entrée unique qui :
 * Cas normal / cas attaque
 * Schéma d’architecture
 * README clair + limites + perspectives
+
+
+##Sources
+ [freeCodeCamp.org](https://www.youtube.com/watch?v=9t9Mp0BGnyI)
+
 
 
 --
