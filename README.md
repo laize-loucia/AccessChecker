@@ -51,8 +51,3 @@ Un **reverse proxy** est un point d’entrée unique qui :
 
 ##Sources
  [freeCodeCamp.org](https://www.youtube.com/watch?v=9t9Mp0BGnyI)
-
-
-
---
-Tu es clairement sur un **projet niveau M1/M2** là 👏
