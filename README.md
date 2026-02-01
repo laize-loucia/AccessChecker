@@ -9,7 +9,7 @@ Un **reverse proxy** est un point d’entrée unique qui :
 * applique des règles de sécurité (TLS, WAF, rate-limit)
 * sépare **exposition réseau** et **logique applicative**
 
-![Texte alternatif](https://github.com/laize-loucia/AccessChecker/NGINX_Reverseproxy.png "Titre de l'image").
+![Texte alternatif](NGINX_Reverseproxy.png "Titre de l'image").
 
 ![Alt text](https://github.com/laize-loucia/AccessChecker/NGINX_Reverseproxy.png)
 ![alt text](https://github.com/laize-loucia/AccessChecker/NGINX_Reverseproxy.png)
