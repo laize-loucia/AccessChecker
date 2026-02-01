@@ -1,9 +1,5 @@
 
-## Genèse de mon projet
-
-
-
-
+## Genèse du projet
 
 #Reverse proxy
 Comprendre le rôle d'un reverse proxy est très important en systèmes étant donné que c'est une pilier qui assure la robustesse d'une archicture et la protège.
