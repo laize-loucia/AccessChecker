@@ -1,19 +1,23 @@
 
 ### Genèse du projet
 
-Le rôle d'un reverse proxy en système est très important. C'est le pilier qui assure la robustesse d'une archicture.
+Le reverse proxy est le point d'entrée vitale et le pilier qui assure la robustesse d'une archicture.
+Le reverse proxy permet de :
 
-Un **reverse proxy** est un point d’entrée unique qui :
-* protège les services internes
-* applique des règles de sécurité (TLS, WAF, rate-limit)
-* sépare **exposition réseau** et **logique applicative**
+* protèger les services internes
+* appliquer des règles de sécurité (TLS, WAF, rate-limit)
+* séparer **exposition réseau** et **logique applicative**
 
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
 
-J'ai donc voulu faire un 1er projet en local intégrant un Reverse proxy;
+J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
 
-#NGINX
+# NGINX
+Pour ca j'ai choisi d'utiliser NGINX.
+
+
+
 
 ## Etapes du projet *AccessChecker*
 
