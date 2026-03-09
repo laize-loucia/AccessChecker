@@ -1,5 +1,5 @@
 
-### Genèse du projet
+# Projet
 
 Le reverse proxy est le point d'entrée et le pilier d'une archicture.
 Il permet de :
@@ -13,7 +13,7 @@ Il permet de :
 
 J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
 
-## Etapes du projet *AccessChecker*
+# Etapes du projet *AccessChecker*
 
 1️⃣ **Mettre en place l’annuaire LDAP**
 
