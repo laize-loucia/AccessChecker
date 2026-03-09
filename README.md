@@ -1,8 +1,8 @@
 
 ### Genèse du projet
 
-Le reverse proxy est le point d'entrée vitale et le pilier qui assure la robustesse d'une archicture.
-Le reverse proxy permet de :
+Le reverse proxy est le point d'entrée et le pilier d'une archicture.
+Il permet de :
 
 * protèger les services internes
 * appliquer des règles de sécurité (TLS, WAF, rate-limit)
@@ -12,12 +12,6 @@ Le reverse proxy permet de :
 
 
 J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
-
-# NGINX
-Pour ca j'ai choisi d'utiliser NGINX.
-
-
-
 
 ## Etapes du projet *AccessChecker*
 
