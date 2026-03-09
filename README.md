@@ -14,15 +14,14 @@ Il permet de :
 J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
 
 
-# Etapes
-
-1️⃣ **Mettre en place l’annuaire LDAP**
+#  1 - Mise en place du LDAP
 
 * Déployer OpenLDAP avec **Docker / docker-compose**
 * Créer utilisateurs et groupes
 * Vérifier l’authentification depuis un client
 
-2️⃣ **Déployer le service d’authentification**
+
+# 2 - Déployer le service d’authentification**
 
 * Service applicatif (ex : Python)
 * Vérification des identifiants via LDAP
