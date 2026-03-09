@@ -1,5 +1,5 @@
 
-# Projet AccessChecker
+# Projet 
 
 
 Le reverse proxy est le point d'entrée et le pilier d'une archicture.
@@ -12,6 +12,9 @@ Il permet de :
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
 J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
+
+L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authentification et l'autorisation.
+
 
 
 #  1 - Mise en place du LDAP
