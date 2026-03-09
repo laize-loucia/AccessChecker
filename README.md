@@ -11,8 +11,8 @@ Il permet de :
 
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
-
 J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
+
 
 # Etapes
 
