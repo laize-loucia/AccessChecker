@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  ldap:
+    image: osixia/openldap:1.5.0
+    container_name: ldap-server
+    environment:
+      LDAP_ORGANISATION: "AccessChecker"
+      LDAP_DOMAIN: "access.local"
+      LDAP_ADMIN_PASSWORD: ad123
+    ports:
+      - "389:389"
+    volumes:
+      - ./ldap:/container/service/slapd/assets/config/bootstrap/ldif/custom
