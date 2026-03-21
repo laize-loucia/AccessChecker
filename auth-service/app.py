@@ -3,17 +3,36 @@ import ldap3
 
 
 
-#Ça crée le serveur web
+#crée le serveur web
 
-#décorateur.
-#permet de modifier ou enrichir une fonction sans changer son code
+#décorateur = modifier ou enrichir une fonction sans changer son code
 
-#"Quand quelqu’un va sur /health → exécute la fonction health()"
 
-#app = serveur flask
+app = Flask(__name__)  #app = serveur flask
 
-app = Flask(__name__)
-
-@app.route("/health")
+@app.route("/health")  #"Quand quelqu’un va sur /health → exécute la fonction health()"
 def health():
     return {"status": "ok"}
+
+
+
+'''
+
+@ = décorateur
+Sert à lier une fonction à un comportement
+Très utilisé dans :
+Flask (API)
+FastAPI
+Django
+sécurité / middlewares
+
+
+Version sans décorateur (pour comprendre)
+
+Le décorateur fait en réalité quelque chose comme ça :
+
+def health():
+    return {"status": "ok"}
+
+app.route("/health")(health)
+'''
