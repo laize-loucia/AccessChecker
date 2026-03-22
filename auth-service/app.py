@@ -5,27 +5,24 @@ import ldap3
 
 #crée le serveur web
 
-#décorateur = modifier ou enrichir une fonction sans changer son code
-
 
 app = Flask(__name__)  #app = serveur flask
 
 @app.route("/health")  #"Quand quelqu’un va sur /health → exécute la fonction health()"
 def health():
-    return {"status": "ok"}
+    return {"status": "ok"} #réponse json
 
+@app.route("/auth")
+def auth():
 
 
 '''
 
 @ = décorateur
 Sert à lier une fonction à un comportement
-Très utilisé dans :
-Flask (API)
-FastAPI
-Django
-sécurité / middlewares
+Très utilisé dans  *Flask (API)  *FastAPI  *Django *sécurité / middlewares
 
+@ est juste une écriture plus propre
 
 Version sans décorateur (pour comprendre)
 
