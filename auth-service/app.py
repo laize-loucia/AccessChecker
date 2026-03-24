@@ -2,8 +2,22 @@ from flask import Flask
 import ldap3
 
 
+@app.route("/auth", methods=["POST"])
+def auth():
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    server = Server("ldap://localhost:389")
+
+    conn = Connection (
+        server,
+        user="cn=admin, dc=access, dc=local",
+        password="admin"
+        )
+
 
 #crée le serveur web
+#le service python va interroger le LDAP pour interroger un login
 
 
 app = Flask(__name__)  #app = serveur flask
@@ -12,8 +26,10 @@ app = Flask(__name__)  #app = serveur flask
 def health():
     return {"status": "ok"} #réponse json
 
-@app.route("/auth")
+@app.route("/auth", methods="POST")
 def auth():
+    if request.method == 'POST':
+        username = request.form.get("username")
 
 
 '''
