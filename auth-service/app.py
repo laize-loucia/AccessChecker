@@ -14,6 +14,14 @@ def auth():
         user="cn=admin, dc=access, dc=local",
         password="admin"
         )
+        conn.bind()
+
+        conn.search(
+            "dc=access, dc=local",
+            f"(uid={username})"
+            )
+        if len(conn.entries) == 0:
+                return {"status": "user not fund"}, 404
 
 
 #crée le serveur web
