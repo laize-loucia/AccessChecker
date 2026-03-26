@@ -1,33 +1,52 @@
 from flask import Flask
-import ldap3
+from ldap3 import Server, Connection
 
 
-@app.route("/auth", methods=["POST"])
+
+app = Flask(__name__)
+
+@app.route("/health", methods=["POST"])
 def auth():
     username = request.form.get("username")
     password = request.form.get("password")
 
     server = Server("ldap://localhost:389")
 
-    conn = Connection (
+    # 1 connexion admin
+    conn = Connection(
         server,
         user="cn=admin, dc=access, dc=local",
         password="admin"
-        )
-        conn.bind()
+    )
 
-        conn.search(
-            "dc=access, dc=local",
-            f"(uid={username})"
-            )
-        if len(conn.entries) == 0:
-                return {"status": "user not fund"}, 404
+    #2 recherche de l'utilisateur
+    conn.search(
+        "dc=acess, dc=local", f"(uid={username})"
+    )
+
+    if len(conn.entries == 0):
+        return {"status": "user not fund"}, 404
+
+    user_dn = conn.entries[0].entry_dn
+
+    #test mot de passe
+
+    user_conn = Connection(server, user=user_dn, password=password)
+
+    if user_conn.bind():
+        return {"status": "ok"}
+    else:
+        return {"status": "invalid credentials"}, 401
+
+
+if __name__ == "__main__":
+    app.run(port=5000)
 
 
 #crée le serveur web
 #le service python va interroger le LDAP pour interroger un login
 
-
+''''
 app = Flask(__name__)  #app = serveur flask
 
 @app.route("/health")  #"Quand quelqu’un va sur /health → exécute la fonction health()"
@@ -40,6 +59,7 @@ def auth():
         username = request.form.get("username")
 
 
+'''
 '''
 
 @ = décorateur
