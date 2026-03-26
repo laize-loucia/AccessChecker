@@ -16,7 +16,7 @@ J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse prox
 L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authentification et l'autorisation.
 
 
-# Archiecture
+# Architecture
 
 
 curl = client
@@ -28,7 +28,13 @@ LDAP = la base d’utilisateurs
 curl = le test
 
 
+👉 /health sert à :
 
+vérifier que le service fonctionne
+
+👉 /auth sert à :
+
+vérifier un utilisateur dans LDAP
 
 client réel (utilisateur)
    
