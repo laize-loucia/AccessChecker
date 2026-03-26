@@ -16,6 +16,48 @@ J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse prox
 L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authentification et l'autorisation.
 
 
+# Archiecture
+
+
+curl = client
+Flask = serveur API
+LDAP = serveur d’authentification
+
+client réel (utilisateur)
+   
+NGINX
+   
+API Flask
+   
+LDAP
+
+## installation
+
+pip3 install ldap3 flask
+
+
+## fichier de service applicatif
+
+Création du fichier app.py, pour établir une connexion au serveur LDAP, faire une recherche utilisateur, et une récupération du DN et vérification du mot de passe.
+
+
+
+## client
+Le client qui envoie la requête dans ce cas, curl et le navigateur http://localhost:5000/health
+
+curl -X POST http://localhost:5000/auth \
+-d "username=jdoe" \
+-d "password=password"
+
+
+
+
+
+## Erreur :
+
+- curl: (7) Failed to connect to localhost port 5000
+Le serveur Flask n’est pas lancé (ou pas accessible)
+
 
 #  1 - Mise en place du LDAP
 
