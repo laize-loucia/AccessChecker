@@ -20,8 +20,15 @@ L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authent
 
 
 curl = client
-Flask = serveur API
+Flask = serveur web (API) en Python app.py 
 LDAP = serveur d’authentification
+
+app.py = le cerveau
+LDAP = la base d’utilisateurs
+curl = le test
+
+
+
 
 client réel (utilisateur)
    
