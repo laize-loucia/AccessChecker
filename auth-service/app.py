@@ -1,36 +1,66 @@
-from flask import Flask
+from flask import Flask, request
 from ldap3 import Server, Connection
-
-
 
 app = Flask(__name__)
 
-@app.route("/health", methods=["POST"])
+
+#/health → test
+#/auth   → login LDAP
+
+#SI quelqu’un va sur /health
+#ALORS exécute la fonction health()
+
+
+
+'''
+
+👉 /health sert à :
+
+vérifier que le service fonctionne
+
+👉 /auth sert à :
+
+vérifier un utilisateur dans LDAP
+
+/health → “le guichet est ouvert ?”
+/auth → “identifiez-vous”
+'''
+@app.route("/health")
+def health():
+    return {"status": "ok"}
+
+
+
+
+@app.route("/auth", methods=["POST"])
 def auth():
     username = request.form.get("username")
     password = request.form.get("password")
 
     server = Server("ldap://localhost:389")
 
-    # 1 connexion admin
+    # 1. Connexion admin
     conn = Connection(
         server,
-        user="cn=admin, dc=access, dc=local",
-        password="admin"
+        user="cn=admin,dc=access,dc=local",
+        password="ad123"
     )
 
-    #2 recherche de l'utilisateur
+    if not conn.bind():
+        return {"status": "ldap error"}, 500
+
+    # 2. Recherche utilisateur
     conn.search(
-        "dc=acess, dc=local", f"(uid={username})"
+        "dc=access,dc=local",
+        f"(uid={username})"
     )
 
-    if len(conn.entries == 0):
-        return {"status": "user not fund"}, 404
+    if len(conn.entries) == 0:
+        return {"status": "user not found"}, 404
 
     user_dn = conn.entries[0].entry_dn
 
-    #test mot de passe
-
+    # 3. Test mot de passe
     user_conn = Connection(server, user=user_dn, password=password)
 
     if user_conn.bind():
@@ -41,6 +71,9 @@ def auth():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
+
+
 
 
 #crée le serveur web

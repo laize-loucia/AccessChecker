@@ -1,0 +1,19 @@
+dn: ou=people,dc=access,dc=local
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=access,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=jdoe,ou=people,dc=access,dc=local
+objectClass: inetOrgPerson
+cn: John Doe
+sn: Doe
+uid: jdoe
+userPassword: password
+
+dn: cn=admins,ou=groups,dc=access,dc=local
+objectClass: groupOfNames
+cn: admins
+member: uid=jdoe,ou=people,dc=access,dc=local
