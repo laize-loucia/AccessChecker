@@ -25,6 +25,16 @@ vérifier un utilisateur dans LDAP
 /health → “le guichet est ouvert ?”
 /auth → “identifiez-vous”
 '''
+
+# 1 - Test du bon fonctionnement de l'API
+@app.route("/")
+def home():
+    return "API is running"
+
+
+# après on ajoute LDAP
+#sinon si LDAP ne marche pas on ne saura pas si ça vient de Flask ou LDAP
+
 @app.route("/health")
 def health():
     return {"status": "ok"}
