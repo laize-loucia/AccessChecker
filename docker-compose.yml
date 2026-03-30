@@ -12,4 +12,5 @@ services:
     ports:
       - "389:389"
     volumes:
-      - ./ldap:/container/service/slapd/assets/config/bootstrap/ldif/custom
+      - ./ldap:/container/service/slapd/assets/config/bootstrap/ldif
+      
