@@ -18,6 +18,20 @@ L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authent
 
 # Architecture
 
+```mermaid
+
+flowchart TD
+    Client["Client (curl / navigateur)"]
+    Flask["Flask API (app.py)"]
+    LDAP["OpenLDAP (Docker)"]
+    LDIF["users.ldif"]
+
+    Client --> Flask
+    Flask --> LDAP
+    LDAP --> LDIF
+```
+
+
 
 curl = client
 Flask = serveur web (API) en Python app.py 
