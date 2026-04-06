@@ -1,8 +1,11 @@
 
 # Projet 
 
+J'ai fait un système d'authentification avec un service API , qui agit comme le point d'entrée intermédiaire à l'authentification d'un utilisateur quelconque et une base utilisateurs avec LDAP.
 
-Le reverse proxy est le point d'entrée et le pilier d'une archicture.
+
+J'ai réalisé ce 1er projet en local qui implémente un Reverse proxy, autre point d'entrée et le pilier d'une archicture.
+
 Il permet de :
 
 * protèger les services internes
@@ -11,9 +14,10 @@ Il permet de :
 
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
-J'ai donc voulu réaliser un 1er projet en local qui implémente un Reverse proxy.
+
 
 L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authentification et l'autorisation.
+
 
 
 # Architecture
@@ -122,6 +126,28 @@ Le serveur Flask n’est pas lancé (ou pas accessible)
 * Cas normal / cas attaque
 * Schéma d’architecture
 * README clair + limites + perspectives
+
+
+# Conclusion
+
+Ce que tu as construit
+Client → API Flask → LDAP → données utilisateurs
+
+👉 donc oui :
+
+✔ Flask = service intermédiaire (API)
+✔ LDAP = base d’identités
+✔ /auth = point d’entrée d’authentification
+
+👉 ton API fait :
+
+"Donne-moi username/password → je vérifie dans LDAP → je réponds OK/KO"
+
+👉 ça s’appelle :
+
+un service d’authentification
+
+💡 → EXACTEMENT ce qu’on trouve dans les systèmes réels
 
 
 ##Sources
