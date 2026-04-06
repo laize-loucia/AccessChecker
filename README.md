@@ -74,14 +74,11 @@ Création du fichier app.py, pour établir une connexion au serveur LDAP, faire 
 
 
 ## client
-Le client qui envoie la requête dans ce cas, curl et le navigateur http://localhost:5000/health
+Le client envoie la requête via curl et le navigateur http://localhost:5000/health
 
 curl -X POST http://localhost:5000/auth \
 -d "username=jdoe" \
 -d "password=password"
-
-
-
 
 
 ## Erreur :
@@ -117,11 +114,14 @@ sudo systemctl restart nginx
 curl http://localhost:8080
 
 
+
 4️⃣ **Activer le chiffrement TLS**
 
 * Générer des certificats (self-signed)
 * Forcer HTTPS
 * Vérifier la protection des échanges
+
+kwrite /etc/nginx/sites-available/default
 
 5️⃣ **Ajouter OWASP ModSecurity**
 
