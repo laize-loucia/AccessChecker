@@ -103,11 +103,19 @@ Le serveur Flask n’est pas lancé (ou pas accessible)
 * Vérification des identifiants via LDAP
 * Exposition d’une API simple (`/auth`, `/health`)
 
-3️⃣ **Installer et configurer NGINX**
+# 3️⃣ **Installer et configurer NGINX**
 
 * NGINX agit comme **reverse proxy** devant le service
 * Redirection du trafic vers le backend
 * Centralisation des accès et des logs
+
+
+Changement du port
+sudo nano /etc/nginx/sites-available/default
+relancer le service et tester
+sudo systemctl restart nginx
+curl http://localhost:8080
+
 
 4️⃣ **Activer le chiffrement TLS**
 
@@ -149,6 +157,190 @@ un service d’authentification
 
 💡 → EXACTEMENT ce qu’on trouve dans les systèmes réels
 
+Parfait 👏 là tu es **à 1 bug de finir ton projet**.
+Et ton erreur est **très logique** — on va la lire comme un pro.
+
+---
+
+# 🎯 🧠 Situation actuelle
+
+Tu as :
+
+```text
+NGINX → OK (répond)
+Flask → ❌ pas accessible
+LDAP → OK
+```
+
+---
+
+# 💥 ❗ Les erreurs
+
+## 1️⃣
+
+```bash
+curl http://localhost:5000/auth
+→ Failed to connect
+```
+
+👉 donc :
+
+```text
+❌ Flask n’est PAS lancé
+```
+
+---
+
+## 2️⃣
+
+```bash
+curl http://localhost:8080/auth
+→ 502 Bad Gateway
+```
+
+👉 traduction :
+
+```text
+NGINX fonctionne
+MAIS il ne peut pas joindre Flask
+```
+
+---
+
+# 🧠 💡 Règle d’or
+
+```text
+502 = backend down
+```
+
+👉 backend = Flask ici
+
+---
+
+# 🔥 ✅ Solution
+
+## 👉 1️⃣ Relancer Flask
+
+Dans un terminal :
+
+```bash
+cd ~/AccessChecker/auth-service
+python3 app.py
+```
+
+👉 tu dois voir :
+
+```text
+Running on http://127.0.0.1:5000
+```
+
+⚠️ **NE FERME PAS CE TERMINAL**
+
+---
+
+## 👉 2️⃣ Tester direct Flask
+
+Dans un autre terminal :
+
+```bash
+curl http://localhost:5000/health
+```
+
+👉 attendu :
+
+```json
+{"status":"ok"}
+```
+
+---
+
+## 👉 3️⃣ Tester via NGINX
+
+```bash
+curl http://localhost:8080/health
+```
+
+👉 attendu :
+
+```json
+{"status":"ok"}
+```
+
+---
+
+## 👉 4️⃣ Test final
+
+```bash
+curl -X POST http://localhost:8080/auth \
+-d "username=jdoe" \
+-d "password=password"
+```
+
+---
+
+# 🎯 Résultat attendu
+
+```json
+{"status":"ok"}
+```
+
+---
+
+# 🧠 Ce que tu viens de comprendre (TRÈS important)
+
+```text
+NGINX ne contient PAS ton application
+→ il dépend du backend
+```
+
+---
+
+# 🧱 Architecture réelle maintenant
+
+```text
+Client → NGINX (8080) → Flask (5000) → LDAP (389)
+```
+
+---
+
+# 💡 Astuce pro
+
+👉 Si tu veux vérifier rapidement :
+
+```bash
+ps aux | grep python
+```
+
+👉 si Flask tourne → tu le verras
+
+---
+
+# 🔥 Résumé
+
+```text
+502 = Flask OFF
+solution = relancer app.py
+```
+
+---
+
+# 🚀 Niveau que tu as atteint
+
+Franchement :
+
+```text
+✔ API Flask
+✔ LDAP
+✔ Docker
+✔ Reverse proxy NGINX
+✔ Debug réseau
+```
+
+👉 tu es en train de faire un **mini système d’authentification réel**
+
+---
+
+👉 Lance Flask et dis-moi si `/auth` passe par NGINX 👌
 
 ##Sources
  [freeCodeCamp.org](https://www.youtube.com/watch?v=9t9Mp0BGnyI)
