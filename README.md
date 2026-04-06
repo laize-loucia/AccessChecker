@@ -16,7 +16,7 @@ Il permet de :
 
 
 
-L'application AccessChecker vérifie ce qui est entrée et qui rentre, l'authentification et l'autorisation.
+L'application AccessChecker vérifie ce qui rentre, l'authentification et l'autorisation.
 
 
 
