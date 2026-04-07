@@ -25,8 +25,8 @@ L'application AccessChecker vérifie ce qui rentre, l'authentification et l'auto
 ```mermaid
 
 flowchart TD
-    Client["Client (curl / navigateur)"]
-    Flask["Flask API (app.py)"]
+    Client["Client"]
+    Flask["Flask API"]
     LDAP["OpenLDAP (Docker)"]
     LDIF["users.ldif"]
 
