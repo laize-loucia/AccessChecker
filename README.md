@@ -19,8 +19,8 @@ J'ai réalisé ce 1er projet en local qui implémente un Reverse proxy, point d'
 Il permet de :
 
 * protèger les services internes
-* appliquer des règles de sécurité (TLS, WAF, rate-limit)
-* séparer **exposition réseau** et */home/laize/AccessChecker*logique applicative**
+* appliquer des règles de sécurité (TLS, WAF...)
+* séparer **exposition réseau**
 
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
