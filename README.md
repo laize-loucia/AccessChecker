@@ -25,6 +25,9 @@ Il permet de :
 ![Aperçu Rôle Reverse Proxy](ReverseProxyNGINX.png "TRverse Proxy Role").
 
 
+ Dans ce cas précis, le client fait une requête, qui passe par le service Flask que le proxy redirige vers l'annuaire.
+
+
 ```mermaid
 
 flowchart TD
