@@ -7,7 +7,7 @@
 J'ai fait un système d'authentification avec un service API , qui agit comme le point d'entrée intermédiaire à l'authentification d'un utilisateur quelconque et une base utilisateurs avec LDAP.
 
 
-L'application AccessChecker vérifie ce qui rentre, l'authentification et l'autorisation.
+L'application AccessChecker permet de vérifier ce qui rentre, l'authentification et l'autorisation.
 
 
 
