@@ -10,32 +10,6 @@ J'ai fait un système d'authentification avec un service API , qui agit comme le
 L'application AccessChecker permet de vérifier ce qui rentre, l'authentification et l'autorisation.
 
 
-```mermaid
-gantt
-    title Profil de Charge INITIAL (Surcharges identifiées)
-    dateFormat  YYYY-MM-DD
-    axisFormat  Jour %j
-
-    section PILOTE (Surcharges !)
-    A (Audit)           :active, p1, 2026-01-01, 4d
-    C (Normalisation)   :active, p2, 2026-01-08, 4d
-    D (Maquettage)      :crit, p3, 2026-01-08, 5d
-    H (Script KPI)      :active, p4, 2026-01-18, 4d
-    L (Guide)           :crit, p5, 2026-01-29, 3d
-    M (Doc Tech)        :crit, p6, 2026-01-29, 2d
-
-    section DEVELOPPEUR (Surcharges !)
-    G (Script Flux)     :active, d1, 2026-01-12, 6d
-    E (Règles Excel)    :crit, d2, 2026-01-13, 2d
-    F (Dév VBA)         :crit, d3, 2026-01-15, 2d
-    K (Recette)         :active, d4, 2026-01-27, 2d
-
-    section PPO (Dispo 2)
-    A (Audit)           : 2026-01-01, 4d
-    B (Structure)       : 2026-01-05, 3d
-```
-
-
 # Architecture
 
 
